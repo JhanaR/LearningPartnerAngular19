@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-3">
+          <div class="p-4" [ngStyle]="{ 'background-color': divColor1 }">Div1</div>
+        </div>
+        <div class="col-3">
+          <div class="p-4"
+            [ngStyle]="{'background-color': divColor2 == true ? 'blue' : 'orange'}"> Div2 </div>
+        </div>
+        <div class="col-3">
+          <div
+            class="p-4"
+            [ngStyle]="{
+              'background-color': divColor3,
+              color: divFontColor,
+              'font-size': '90px'
+            }"
+          >
+            Div3
+          </div>
+        </div>
+        <!-- <div
+            class="p-4"
+            style="font-size: 30px"
+            [ngStyle]="{ 'background-color': divColor3, color: divFontColor }"
+          >
+            Div3
+          </div> -->
+        <div class="p-4" [ngStyle]="myCss">Div4</div> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <div class="p-4">
+          <div class="btn btn-success" (click)="colorChange('bg-success')">
+            Add1
+          </div>
+          <div class="btn btn-info" (click)="colorChange('bg-secondary')">
+            Add2
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="p-4">
+          <input type="checkbox" [(ngModel)]="divColor2" />
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="p-4"><input type="text" [(ngModel)]="divColor3" /></div>
+        <div class="p-4">
+          <input type="text" [(ngModel)]="divFontColor" />
+        </div>
+      </div>
+    </div>
+  </div>

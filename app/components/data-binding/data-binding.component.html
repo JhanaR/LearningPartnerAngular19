@@ -1,0 +1,97 @@
+<table>
+  <tr>
+    <!--One Way Data binding-->
+    <!--1.using interpolation-->
+    <td>Name: {{ name }}</td>
+    <input type="text" value="{{ name }}" />
+    <td>Active/Not: {{ isActive }}</td>
+    <td>
+      Done/Not: <span>{{ isDone }}</span>
+    </td>
+    <td>current Date: {{ currentDate }}</td>
+  </tr>
+</table>
+<!--2.using Property Binding "Wrapping of proprty to a variable"-->
+<table>
+  <input type="text" [value]="name" />
+  <input type="text" [placeholder]="placingValue" value="{{ courseName }}" />
+  <input [type]="inty" />
+</table>
+<!--3.using Event Binding -->
+<table>
+  <input type="text" value="{{ courseName }}" />
+  <td><button (click)="showWelcomeMessage()">Show Message</button></td>
+  <!-- <td><select (change)="onCityChange()">
+    <option value="CHN" >CHN</option>
+    <option value="BANG" >BANG</option>
+  </select></td> -->
+  <!-- <td><select (change)="showCity($event)" value={{selectedCity}}>
+    <option value="">Select City</option>
+    <option value="CHN" >CHN</option>
+    <option value="BANG" >BANG</option>
+  </select></td> -->
+  <td>
+    <select [(ngModel)]="selectedCity">
+      <option value="">Select City</option>
+      <option value="CHN">CHN</option>
+      <option value="BANG">BANG</option>
+    </select>
+  </td>
+  <td>
+    selectedCity = {{selectedCity}}
+  </td>
+</table>
+<div
+  (click)="showWelcomeMessage()"
+  style="width: 100px; height: 100px; background-color: rgb(222, 62, 62)"
+>
+  DIV 1
+</div>
+
+<button (click)="showMessage('this is angular')">Show Angular</button>
+<button (click)="showMessage('this is java')">Show JAVA</button>
+<button (click)="showMessage('this is react')">Show React Js</button>
+
+<div
+  (mouseover)="mouseIn()"
+  (mouseleave)="mouseOut()"
+  style="width: 100px; height: 100px; background-color: rgb(62, 118, 222)"
+>
+  DIV 2
+</div>
+<!--Two way Data Binding -->
+<table>
+  <td>
+    <input
+      type="text" (input)="onCourseDurationChnage($event)"
+      [value]="courseDuration"
+    />
+    - {{ courseDuration }}
+  </td>
+</table>
+<table>
+  <td><input type="text" [(ngModel)]="course" /> - {{ course }}</td>
+</table>
+<table>
+  <tr>
+    <td>
+      <input type="text" [(ngModel)]="num1" >
+      <div *ngIf ="num1 ==''" class="bg-warning">Enter number</div>
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="num2" >
+      <div *ngIf ="num1 ==''"  class="bg-warning">Enter number</div>
+    </td>
+    <td>
+      <button (click)="onAdd()">Add</button>
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="result">
+    </td>
+    <td *ngIf="result !=null && result != ''" >
+      <p *ngIf="result%2 == 0">Number is Even</p>
+      <p *ngIf="result%2 != 0">Number is Odd</p>
+    </td>
+  </tr>
+</table>
+

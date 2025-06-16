@@ -1,0 +1,160 @@
+<div class="row">
+  <div class="col-3 pt-2">
+    <ul>
+      <li *ngFor="let place of places">{{ place }}</li>
+    </ul>
+  </div>
+</div>
+<div class="row-3">
+  <div class="col pt-2">
+    <button *ngFor="let visit of places" class="btn btn-success mx-2">
+      {{ visit }}
+    </button>
+  </div>
+  <div class="col-3">
+    <input *ngFor="let visit of places" [value]="visit" type="text" />
+    <input *ngFor="let visit of places" value="{{ visit }}" type="text" />
+  </div>
+  <div class="col-3" *ngFor="let visit of places">
+    <input [value]="visit" type="checkbox" />{{ visit }}
+  </div>
+  <div class="col-3" *ngFor="let visit of places">
+    <input *ngFor="let visit of places" [value]="visit" type="radio" />{{
+      visit
+    }}
+  </div>
+</div>
+<div class="ror-3">
+  <div class="col-3" style="letter-spacing: 8px">
+    <span class="col pt-8" *ngFor="let wonder of places">{{ wonder }}</span>
+  </div>
+  <div class="col-3 d-flex flex-wrap gap-2">
+    <span class="col pt-8" *ngFor="let wonder of places">{{ wonder }}</span>
+  </div>
+  <div class="col-3 pt-3" *ngFor="let observe of places" class="col">
+    {{ observe }}
+  </div>
+</div>
+<div class="row9 pt-2">
+  <div class="col-5 pt-2">
+    <select *ngFor="let see of places">
+      <option>{{ see }}</option>
+    </select>
+  </div>
+  <div class="col-5 pt-2">
+    <select>
+      <option *ngFor="let see of places">{{ see }}</option>
+    </select>
+    <select>
+      <option *ngFor="let stude of students">
+        {{ stude.name }} -- {{ stude.grade }} -- {{ stude.qualify }} --{{
+          stude.contact
+        }}
+        --{{ stude.location }}
+      </option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-5 text-end">
+    <i class="fa fa-table" style="font-size: 30px" *ngIf="!isToggel" (click)="isToggel = !isToggel" aria-hidden="true" ></i>
+    <i class="fa fa-table" style="font-size: 30px" *ngIf="isToggel" (click)="isToggel = !isToggel" aria-hidden="true" ></i>
+    <!-- <button class="btn btn-primary" (click)="isToggel = !isToggel">Toggel view</button> -->
+  </div>
+</div>
+<div class="row" *ngIf="isToggel == false">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Sr No</th>
+        <th>Name</th>
+        <th>Grade</th>
+        <th>Qualify</th>
+        <th>Contact</th>
+        <th>Location</th>
+        <th>Attendance</th>
+        <th>Together</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stud of students; let srno = index">
+        <td>{{ srno + 1 }}</td>
+        <td>{{ stud.name }}</td>
+        <td>{{ stud.grade }}</td>
+        <td>
+          <!-- {{ stud.qualify }} -->
+          <span class="text-success" *ngIf="stud.qualify == 'true'">Yes</span>
+          <span class="text-danger" *ngIf="stud.qualify == 'false'">No</span>
+        </td>
+        <td>{{ stud.contact }}</td>
+        <td>{{ stud.location }}</td>
+        <td>
+        <div class="progress">
+          <div class="progress-bar" [ngStyle]="{width:stud.attendance + '%'}">
+            {{stud.attendance}}</div>
+        </div>
+        </td>
+        <td>
+          {{ stud.name }} -- {{ stud.grade }} -- {{ stud.qualify }} --
+          {{ stud.contact }} --{{ stud.location }}--{{stud.Attendance}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row" *ngIf="isToggel == true">
+  <div class="col" *ngFor="let stud of students">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Student list</h4>
+        <p class="card-text">
+          {{ stud.name }} -- {{ stud.grade }} -- {{ stud.qualify }} --
+          {{ stud.contact }} --{{ stud.location }}----{{stud.Attendance}}
+        </p>
+        <a href="#" class="card-link">Edit</a>
+        <a href="#" class="card-link">Delete</a>
+      </div>
+    </div>
+    <div class="card shadow rounded-4">
+      <img
+        src="https://randomuser.me/api/portraits/men/32.jpg"
+        class="card-img-top rounded-top-4"
+        alt="Student Image"
+      />
+      <div class="card-body text-center">
+        <h5 class="card-title mb-1">{{ stud.name }}</h5>
+        <p class="text-muted small">Student ID: <strong>STU202501</strong></p>
+
+        <ul class="list-group list-group-flush text-start mb-3">
+          <li class="list-group-item">
+            <strong>mobile:</strong> {{ stud.mobile }}
+          </li>
+          <li class="list-group-item">
+            <strong>city:</strong> {{ stud.city }}
+          </li>
+          <li class="list-group-item">
+            <strong>Phone:</strong> +91-9876543210
+          </li>
+        </ul>
+
+        <a href="#" class="btn btn-primary w-100 rounded-pill">View Profile</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row-3">
+  <div class="col-3">
+    <input
+      *ngFor="let boolean of booleanList"
+      [checked]="boolean"
+      type="checkbox"
+    />
+  </div>
+  <div class="row-3">
+    <br *ngFor="let boolean of booleanList" />
+    <hr *ngFor="let boolean of booleanList" />
+  </div>
+  <div class="row">
+    <label *ngFor="let boolean of booleanList">{{ boolean }}</label>
+  </div>
+</div>

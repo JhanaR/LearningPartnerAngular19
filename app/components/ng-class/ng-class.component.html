@@ -1,0 +1,74 @@
+<div class="row">
+  <!-- <div [ngClass]="isVisible == true ? 'col-8' : 'col-12'"> -->
+    <div [ngClass]="isVisible2 == 'true' ? 'col-8' : 'col-12'">
+    <div class="card">
+      <div class="card-header bg-secondary">
+        <div class="row">
+          <div class="col-6">List</div>
+          <div class="col-6 text-end">
+            <!-- <button class="btn btn-primary mt-2" (click)="showForm()">
+              Show Form
+            </button> -->
+            <!-- <button class="btn btn-primary mt-2" (click)="form('true')">Show Form</button> -->
+            <button class="btn btn-primary mt-2" (click)="isVisible2 = 'true'">Show Form</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-3">
+            <div class="p-4" [ngClass]="divColor1">Div1</div>
+          </div>
+          <div class="col-3">
+            <div
+              class="p-4"
+              [ngClass]="divColor2 == true ? 'bg-success' : 'bg-primary'"
+            >
+              Div2
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="p-4" [ngClass]="divColor3">Div3</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <div class="p-4">
+              <div class="btn btn-success" (click)="colorChange('bg-success')">
+                Add1
+              </div>
+              <div class="btn btn-primary" (click)="colorChange('bg-primary')">
+                Add2
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="p-4">
+              <input type="checkbox" [(ngModel)]="divColor2" />
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="p-4">
+              <input type="text" [(ngModel)]="divColor3" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col-4" *ngIf="isVisible"> -->
+    <div class="col-4" *ngIf="isVisible2 == 'true'">
+    <div class="card">
+      <div class="card-header bg-secondary">
+        <div class="row">
+          <div class="col-6">New Form</div>
+          <div class="col-6 text-end">
+            <!-- <button class="btn btn-primary" (click)="hideForm()">close</button> -->
+            <!-- <button class="btn btn-primary" (click)="form('false')">close</button>-->
+            <button class="btn btn-primary" (click)="isVisible2 = 'false'">close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

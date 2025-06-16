@@ -1,0 +1,120 @@
+<div class="row">
+  <div class="col-3">
+    @if (isVisible == true){
+    <div class="p-4 bg-primary">Div 1</div>
+    }
+  </div>
+  <div class="col-3">
+    <input type="checkbox" [(ngModel)]="isVisible" />
+  </div>
+  @if(isButton == 'Show'){
+  <div class="col-3 bg-info">Div 2</div>
+  }
+  <div class="col-3">
+    <button class="btn btn-success btn-sm" (click)="clickedButton('Hide')">
+      Hide
+    </button>
+    <button class="btn btn-danger btn-sm" (click)="clickedButton('Show')">
+      Show
+    </button>
+  </div>
+  <div class="col-3">
+    <select class="option-select" [(ngModel)]="isOther">
+      <option value="">Select caste</option>
+      <option value="gen">General</option>
+      <option value="obc">OBC</option>
+      <option value="bc">BC</option>
+      <option value="other">OTHERS</option>
+    </select>
+    @if(isOther == "other"){
+    <input type="text" class="option-select" placeholder="other" />
+    }
+  </div>
+  <div class="col-3 bg-warning">Div 3</div>
+  <div class="col-3 bg-secondary">Div 4</div>
+</div>
+<div class="row">
+  <div class="col-3">
+    <input
+      type="text"
+      maxlength="3"
+      [(ngModel)]="dayStarting"
+      placeholder="Enter Starting day char"
+    />
+    @if(dayStarting == "sun") {
+    <p>sunday</p>
+    }@else if (dayStarting == "mon") {
+    <p>monday</p>
+    }@else if (dayStarting == "tue") {
+    <p>tuesday</p>
+    }@else if (dayStarting == "wed") {
+    <p>wednesday</p>
+    }@else if (dayStarting == "thu") {
+    <p>thursday</p>
+    }@else if (dayStarting == "fri") {
+    <p>friday</p>
+    }@else if (dayStarting == "sat") {
+    <p>Saturday</p>
+    }@else {
+    <!-- <p>Enter valid day!!</p> -->
+    @if (dayStarting != "") {
+    <p>Enter valid day!!</p>
+    }@else {
+    <p>Type any Day!!</p>
+    } }
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <ul>
+        @for (visit of places; track $index ){
+        <li>{{ visit }}</li>
+        }
+      </ul>
+    </div>
+    <div class="col-3">
+      <select name="" id="">
+        @for (visit of places; track $index ){
+        <option>{{ visit }}</option>
+        }
+      </select>
+    </div>
+    <div class="col-3">
+      @for ( visit of places; track $index){
+      <button class="btn btn-success">{{ visit }}</button>
+      }
+    </div>
+  </div>
+  <div class="col-3">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>SrNo</th>
+          <th>Name</th>
+          <th>Grade</th>
+          <th>Qualify</th>
+          <th>Contact</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for ( stud of students; track $index){
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ stud.name }}</td>
+          <td>{{ stud.grade }}</td>
+          <td>
+            <!-- {{ stud.qualify }} -->
+            @if(stud.qualify == "true"){
+            <p>Yes</p>
+            }@else{
+            <p>No</p>
+            }
+          </td>
+          <td>{{ stud.contact }}</td>
+          <td>{{ stud.location }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

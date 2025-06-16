@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="row-3">
+    <div class="col-3">
+      <div class="p-4 bg-primary" *ngIf="isVisible">Div 1</div>
+    </div>
+  </div>
+  <div class="row-3">
+    <div class="col-3">
+      <input type="checkbox" [(ngModel)]="isVisible" />
+    </div>
+    <div class="col-3">
+      {{ isVisible }}
+    </div>
+    <div class="col3-4 bg-info" *ngIf="isButton == 'Show'">Div 2</div>
+    <button class="btn btn-success" (click)="clickedButton('Hide')">
+      Hide
+    </button>
+    <button class="btn btn-danger" (click)="clickedButton('Show')">Show</button>
+  </div>
+  <div class="row-3">
+    <div class="col-3">
+        <select class="option-select" [(ngModel)]="isOther">
+            <option value = "">Select caste</option>
+            <option value = "gen">General</option>
+            <option value = "obc">OBC</option>
+            <option value = "bc">BC</option>
+            <option value = "other">OTHERS</option>
+        </select>
+        Select caste -- {{isOther}}
+    </div>
+    <div class="col-3"> -- {{isOther == 'other'}}
+        <input type="text" *ngIf="isOther =='other'" 
+        class="option-select" placeholder="other" />
+    </div>
+    <div class="col-3 bg-warning" *ngIf="true">
+        Div 3
+    </div>
+    <!-- <div class="col-3 bg-primary" *ngIf="'AB' == 'A'">
+        Div 4 -- the types '"AB"' and '"A"' have no overlap
+    </div> -->
+    <div class="col-3 bg-secondary" *ngIf="A1 == A2">
+        Div 5
+    </div>
+   <div class="row">
+    <input type="text" [(ngModel)]="A1" placeholder="A1"/>
+    <input type="text" [(ngModel)]="A2" placeholder="A2"/>
+   </div>
+  </div>
+</div>
