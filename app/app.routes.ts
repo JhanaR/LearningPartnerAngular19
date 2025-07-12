@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
 import { DataBindingComponent } from "./components/data-binding/data-binding.component";
-import {NgforPageComponent} from "./components/ngfor-page/ngfor-page.component";
-import {NgifPageComponent} from "./components/ngif-page/ngif-page.component"
+import { NgforPageComponent } from "./components/ngfor-page/ngfor-page.component";
+import { NgifPageComponent } from "./components/ngif-page/ngif-page.component"
 import { ControlStatementComponent } from './components/control-statement/control-statement.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NgClassComponent } from './components/ng-class/ng-class.component';
 import { NgStyleComponent } from './components/ng-style/ng-style.component';
-
+import { DefaultPipeComponent } from './components/default-pipe/default-pipe.component';
 
 export const routes: Routes = [
     {
@@ -38,6 +38,11 @@ export const routes: Routes = [
         path: "ngStyle",
         component: NgStyleComponent,
         title: "Ng Style"
+    },
+    {
+        path: "defaultPipe",
+        component: DefaultPipeComponent,
+        title: "Default Pipe"
     },
     //wildcard route should be last one for better performance
     {
